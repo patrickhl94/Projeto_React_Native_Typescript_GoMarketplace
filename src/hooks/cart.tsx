@@ -30,7 +30,7 @@ const CartProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadProducts(): Promise<void> {
-      const productsStorage = await AsyncStorage.getItem('products');
+      // const productsStorage = await AsyncStorage.getItem('products');
     }
 
     loadProducts();
@@ -40,18 +40,21 @@ const CartProvider: React.FC = ({ children }) => {
     async (product: Product) => {
       // TODO ADD A NEW ITEM TO THE CART
 
-      const findProduct = products.findIndex(
+      const findProduct = products.find(
         element => element.price === product.price,
       );
 
       if (findProduct) {
-        products[findProduct].quantity += 1;
-        console.log('entrou');
-        return setProducts(products);
+        setProducts(
+          products.map(productMap =>
+            productMap.id === product.id
+              ? { ...productMap, quantity: productMap.quantity + 1 }
+              : productMap,
+          ),
+        );
+      } else {
+        setProducts([...products, { ...product, quantity: 1 }]);
       }
-
-      console.log('passou');
-      return setProducts([...products, product]);
     },
     [products],
   );
