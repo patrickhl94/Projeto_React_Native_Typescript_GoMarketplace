@@ -23,24 +23,6 @@
       "title": "Nome do produto 04",
       "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/camiseta-ecommerce.jpg",
       "price": 80
-    },
-    {
-      "id": "127",
-      "title": "Nome do produto 05",
-      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/camiseta-ecommerce.jpg",
-      "price": 80
-    },
-    {
-      "id": "128",
-      "title": "Nome do produto 06",
-      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/camiseta-ecommerce.jpg",
-      "price": 80
-    },
-    {
-      "id": "129",
-      "title": "Nome do produto 07",
-      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/camiseta-ecommerce.jpg",
-      "price": 85.6
     }
   ]
 }
