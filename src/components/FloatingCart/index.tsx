@@ -27,7 +27,7 @@ const FloatingCart: React.FC = () => {
     // TODO RETURN THE SUM OF THE PRICE FROM ALL ITEMS IN THE CART
 
     const sumPriceProducts = products.reduce((accumulator, currentValue) => {
-      return accumulator + currentValue.price;
+      return accumulator + currentValue.price * currentValue.quantity;
     }, 0);
 
     return formatValue(sumPriceProducts);
@@ -37,10 +37,8 @@ const FloatingCart: React.FC = () => {
     // TODO RETURN THE SUM OF THE QUANTITY OF THE PRODUCTS IN THE CART
 
     const sumQuantityProducts = products.reduce((accumulator, currentValue) => {
-      return accumulator + (currentValue.quantity ? currentValue.quantity : 1);
+      return accumulator + currentValue.quantity;
     }, 0);
-
-    console.log('TOTAL', products.length + sumQuantityProducts);
 
     return sumQuantityProducts;
   }, [products]);
