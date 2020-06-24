@@ -93,14 +93,16 @@ const CartProvider: React.FC = ({ children }) => {
     async id => {
       // TODO DECREMENTS A PRODUCT QUANTITY IN THE CART
 
-      const newProducts = products.map(product =>
-        product.id === id
-          ? {
-              ...product,
-              quantity: product.quantity >= 1 ? product.quantity - 1 : 0,
-            }
-          : product,
-      );
+      const newProducts = products
+        .map(product =>
+          product.id === id
+            ? {
+                ...product,
+                quantity: product.quantity - 1,
+              }
+            : product,
+        )
+        .filter(product => product.quantity !== 0);
       setProducts(newProducts);
 
       await AsyncStorage.setItem(
